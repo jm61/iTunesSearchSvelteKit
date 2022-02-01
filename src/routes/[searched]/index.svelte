@@ -5,8 +5,9 @@
     let songResults = []
  
     onMount(async () => {
+      const options = {"Access-Control-Allow-Origin": "*"}
      let searched = $page.params.searched
-     const iTunesSearched = await fetch(`https://itunes.apple.com/search?term=${searched}&entity=song`)
+     const iTunesSearched = await fetch(`https://itunes.apple.com/search?term=${searched}&entity=song`, options)
      const res = await iTunesSearched.json()
      songResults = res.results
     })
